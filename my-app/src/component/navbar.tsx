@@ -20,7 +20,7 @@ interface CustomLinkProps {
     children: React.ReactNode;
 }
 
-function CustomLink({ to, children, ...props }: CustomLinkProps & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+function CustomLink({ to, children, ...props }: CustomLinkProps) {
     const path =window.location.pathname
 
     return (
