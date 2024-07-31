@@ -27,7 +27,7 @@ const Favorite=()=>{
     </div>
     </div> ))
             ) : (
-         <h1>You don't have any items yet</h1>
+         <h1>You don't have any items yet    </h1>
             )}
         </div>
     );

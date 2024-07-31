@@ -1,14 +1,27 @@
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+    const isLoggedIn = !!localStorage.getItem('user');
+    const navigate = useNavigate();
+  
+    const handleLogout = (e:any) => {
+        e.preventDefault();
+      localStorage.removeItem('user'); 
+      navigate('/');
+    };
     return (
         <div>
             <nav className="nav">
                 <Link to="/" className="site-title">Home</Link>
                 <ul>
-                    <CustomLink to="/product">Products</CustomLink>
-                    <CustomLink to="/favorite">Favorites</CustomLink>
+                    <Link to="/product">Products</Link>
+                    {isLoggedIn && <Link to="/favorites">Favorites</Link>}
+                    {!isLoggedIn ? (
+                    <Link to="/login">Login</Link>
+                ) : (
+                 <Link to="/logout" onClick={handleLogout}>Logout</Link>
+                 )}
                 </ul>
             </nav>
         </div>
